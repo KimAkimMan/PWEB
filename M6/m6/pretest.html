@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Show/Hide Image</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        #image {
+            max-width: 300px;
+            display: none; /* Gambar awalnya tersembunyi */
+        }
+        button {
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Show and Hide Image Example</h1>
+    <img id="image" src="https://via.placeholder.com/300" alt="Sample Image">
+    <br>
+    <button id="toggleButton">Show Image</button>
+
+    <script>
+        $(document).ready(function() {
+            $("#toggleButton").on("click", function() {
+                const image = $("#image");
+                if (image.is(":visible")) {
+                    image.hide();
+                    $(this).text("Show Image");
+                } else {
+                    image.show();
+                    $(this).text("Hide Image");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
