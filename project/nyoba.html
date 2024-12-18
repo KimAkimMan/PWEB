@@ -7,8 +7,22 @@
     
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; background-color: #f0f0f0; }
-        header, footer { background-color: #333; color: white; text-align: center; padding: 10px; }
+        body { 
+            font-family: Arial, sans-serif; 
+            background-color: #d6e9ff; 
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        header, footer { 
+            background-color: #d6e9ff; 
+            color: rgb(0, 0, 0); 
+            text-align: center; 
+            padding: 10px; 
+        }
+        footer {
+            margin-top: auto; /* Membuat footer tetap di bawah */
+        }
         .navbar ul { padding: 0; }
         .navbar ul li ul { display: none; position: absolute; background-color: #555; padding: 0; list-style: none; }
         .navbar ul li:hover ul { display: block; }
@@ -16,8 +30,8 @@
         .navbar ul li ul li:hover ul { display: block; }
         .navbar-login { margin-left: auto; }
         header { background: url("...") center left/cover; }
-        #content { display: none; }
-        iframe { width: 100%; height: 100vh; border: 0; }
+        #content { display: none; margin-bottom: 20px; }
+        iframe { width: 100%; height: 500px; border: 0; } /* Mengatur ukuran iframe supaya lebih besar */
     </style>
 </head>
 <body>
@@ -59,7 +73,7 @@
                             <li><a class="dropdown-item" href="#" onclick="loadIframe('ruang-rapat.html')">Ruang Rapat</a></li>
                         </ul>
                     </li>
-                    <li class="nav-item"><a class="nav-link" href="#" onclick="loadIframe('pesan.html')">Pesan Sekarang</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#" onclick="loadIframe('pemesanan.html')">Pesan Sekarang</a></li>
                 </ul>
                 <ul class="navbar-nav navbar-login">
                     <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
@@ -75,6 +89,29 @@
     <div id="homeContent" class="container mt-4">
         <h2>Selamat Datang di Best Hotel</h2>
         <p>Pengalaman menginap terbaik menanti Anda di sini!</p>
+
+        <!-- Tambahan Video Tour dan Daftar Kamar -->
+        <div class="row mt-4">
+            <aside class="col-md-4">
+                <h2>Video Tour</h2>
+                <iframe src="https://www.youtube.com/embed/samplevideo1" frameborder="0" allowfullscreen class="w-100 mb-3"></iframe>
+                <iframe src="https://www.youtube.com/embed/samplevideo2" frameborder="0" allowfullscreen class="w-100 mb-3"></iframe>
+                <iframe src="https://www.youtube.com/embed/samplevideo3" frameborder="0" allowfullscreen class="w-100"></iframe>
+            </aside>
+            <section class="col-md-8">
+                <h2 id="kamar">Daftar Kamar</h2>
+                <div class="room-gallery row">
+                    <div class="col-md-6">
+                        <img src="https://via.placeholder.com/300" alt="Kamar 1" class="img-fluid img-thumbnail mb-3 w-75">
+                        <p>Kamar Standar</p>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="https://via.placeholder.com/300" alt="Kamar 2" class="img-fluid img-thumbnail mb-3 w-75">
+                        <p>Kamar Deluxe</p>
+                    </div>
+                </div>
+            </section>
+        </div>
     </div>
 
     <footer id="footer" class="mt-4">

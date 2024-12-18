@@ -60,7 +60,11 @@
         return;
       }
 
+      // Jika login berhasil, arahkan ke halaman form admin
       showPopup('Login berhasil!');
+      setTimeout(() => {
+        window.location.href = "t2.html"; 
+      }, 2000);
     }
   </script>
 </body>

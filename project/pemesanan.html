@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form Pemesanan</title>
+</head>
+<body>
+    <h1>FORM PEMESANAN</h1>
+    <form>
+        <table>
+            <tr>
+                <td><label for="idPemesanan">ID PEMESANAN:</label></td>
+                <td><input type="number" id="idPemesanan" name="idPemesanan" required /></td>
+            </tr>
+            <tr>
+                <td><label for="namaPemesanan">NAMA PEMESAN:</label></td>
+                <td><input type="text" id="namaPemesanan" name="namaPemesanan" maxlength="35" minlength="5" required /></td>
+            </tr>
+            <tr>
+                <td><label for="nomorIdentitas">NOMOR IDENTITAS:</label></td>
+                <td><input type="text" id="nomorIdentitas" name="nomorIdentitas" maxlength="20" minlength="5" pattern="(?=.*[a-zA-Z])(?=.*[0-9])(?=.*[!@#])" required /></td>
+            </tr>
+            <tr>
+                <td><label for="jenisKelamin">JENIS KELAMIN:</label></td>
+                <td>
+                    <input type="radio" id="jenisKelaminL" name="jenisKelamin" value="Laki-laki" required /> Laki-laki
+                    <input type="radio" id="jenisKelaminP" name="jenisKelamin" value="Perempuan" required /> Perempuan
+                </td>
+            </tr>
+            <tr>
+                <td><label for="tipeKamar">PILIH TIPE KAMAR:</label></td>
+                <td>
+                    <select id="tipeKamar" name="tipeKamar" onchange="frame.contentWindow.updateHarga()">
+                        <option value="">--pilih salah satu--</option>
+                        <option value="1000000">STANDAR - Rp1.000.000</option>
+                        <option value="2000000">DELUXE - Rp2.000.000</option>
+                        <option value="3000000">FAMILY - Rp3.000.000</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="harga">HARGA:</label></td>
+                <td><input type="text" id="harga" readonly /></td>
+            </tr>
+            <tr>
+                <td><label for="tanggalPesan">TANGGAL PESAN:</label></td>
+                <td><input type="date" id="tanggalPesan" name="tanggalPesan" required /></td>
+            </tr>
+            <tr>
+                <td><label for="durasiMenginap">DURASI MENGINAP (hari):</label></td>
+                <td><input type="number" id="durasiMenginap" name="durasiMenginap" min="1" onchange="frame.contentWindow.hitungTotal()" required /></td>
+            </tr>
+            <tr>
+                <td><label for="breakfast">TERMASUK SARAPAN:</label></td>
+                <td>
+                    <input type="checkbox" id="breakfast" name="breakfast" onchange="frame.contentWindow.hitungTotal()" />
+                    <span id="outputBreakfast">Ya</span>
+                </td>
+            </tr>
+            <tr>
+                <td><label for="totalBayar">TOTAL BAYAR:</label></td>
+                <td><input type="text" id="totalBayar" readonly /></td>
+            </tr>
+            <tr>
+                <td colspan="2" style="text-align:center;">
+                    <button type="button" onclick="frame.contentWindow.simpanPemesanan()">SIMPAN</button>
+                    <button type="reset" onclick="document.getElementById('outputBreakfast').textContent = 'Tidak';">BATAL</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+
+    <div id="resume"></div> 
+
+    <!-- Memuat iframe -->
+    <iframe id="frame" src="script.html" style="display: none;"></iframe>
+</body>
+</html>

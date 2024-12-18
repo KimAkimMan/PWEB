@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script>
+        function updateHarga() {
+            const tipeKamar = parent.document.getElementById("tipeKamar").value;
+            if (tipeKamar) {
+                parent.document.getElementById("harga").value = tipeKamar.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            } else {
+                parent.document.getElementById("harga").value = "";
+                parent.document.getElementById("totalBayar").value = "";
+            }
+            hitungTotal();
+        }
+
+        function hitungTotal() {
+            const harga = parseInt(parent.document.getElementById("harga").value.replace(/\./g, '')) || 0;
+            const durasi = parseInt(parent.document.getElementById("durasiMenginap").value) || 0;
+            const breakfast = parent.document.getElementById("breakfast").checked;
+            const biayaBreakfast = breakfast ? 80000 : 0;
+            let totalBayar = (harga + biayaBreakfast) * durasi;
+
+            if (durasi > 3) {
+                totalBayar *= 0.9;
+            }
+
+            parent.document.getElementById("totalBayar").value = totalBayar.toFixed(0).replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+            parent.document.getElementById("outputBreakfast").textContent = breakfast ? "Ya" : "Tidak";
+        }
+
+        function simpanPemesanan() {
+            const nama = parent.document.getElementById("namaPemesanan").value;
+            const nomorIdentitas = parent.document.getElementById("nomorIdentitas").value;
+            const jenisKelamin = parent.document.querySelector('input[name="jenisKelamin"]:checked').value;
+            const tipeKamar = parent.document.getElementById("tipeKamar").options[parent.document.getElementById("tipeKamar").selectedIndex].text;
+            const durasi = parent.document.getElementById("durasiMenginap").value;
+            const totalBayar = parent.document.getElementById("totalBayar").value;
+            const diskon = (durasi > 3) ? "10%" : "Tidak Ada";
+
+            let resume = `
+                <h2>Resume Pemesanan</h2>
+                <p>Nama Pemesan: ${nama}</p>
+                <p>Nomor Identitas: ${nomorIdentitas}</p>
+                <p>Jenis Kelamin: ${jenisKelamin}</p>
+                <p>Tipe Kamar: ${tipeKamar}</p>
+                <p>Durasi Penginapan: ${durasi} hari</p>
+                <p>Diskon: ${diskon}</p>
+                <p>Total Bayar: Rp${totalBayar}</p>
+            `;
+            parent.document.getElementById("resume").innerHTML = resume;
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>
