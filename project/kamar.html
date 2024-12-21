@@ -28,11 +28,16 @@
             width: 90%;
             max-width: 800px;
         }
-        iframe {
+        img {
             width: 100%;
-            height: 400px;
+            height: auto;
             border: 1px solid #ccc;
             border-radius: 5px;
+            image-rendering: auto; /* Menghindari gambar buram */
+        }
+        .description {
+            text-align: left;
+            margin-top: 0.5rem;
         }
     </style>
 </head>
@@ -43,22 +48,26 @@
     <div class="container">
         <div class="room-type">
             <h2>Deluxe Room</h2>
-            <iframe src="https://www.example.com/deluxe-room" title="Deluxe Room"></iframe>
+            <img src="download (16).jpeg" alt="Deluxe Room">
+            <p class="description">Deluxe Room menawarkan pengalaman menginap yang mewah dengan fasilitas modern, termasuk tempat tidur yang nyaman, TV layar datar, dan kamar mandi pribadi dengan shower air panas.</p>
         </div>
 
         <div class="room-type">
-            <h2>Suite Room</h2>
-            <iframe src="https://www.example.com/suite-room" title="Suite Room"></iframe>
+            <h2>Vip Room</h2>
+            <img src="download (19).jpeg" alt="Vip Room">
+            <p class="description">Vip Room dirancang untuk tamu yang mencari pengalaman premium dengan ruang yang luas, layanan eksklusif, dan dekorasi mewah yang memanjakan.</p>
         </div>
 
         <div class="room-type">
             <h2>Standard Room</h2>
-            <iframe src="https://www.example.com/standard-room" title="Standard Room"></iframe>
+            <img src="download (20).jpeg" alt="Standard Room">
+            <p class="description">Standard Room adalah pilihan yang ekonomis namun tetap nyaman, dilengkapi dengan fasilitas dasar seperti tempat tidur yang nyaman dan meja kerja.</p>
         </div>
 
         <div class="room-type">
             <h2>Family Room</h2>
-            <iframe src="https://www.example.com/family-room" title="Family Room"></iframe>
+            <img src="download (18).jpeg" alt="Family Room">
+            <p class="description">Family Room ideal untuk keluarga dengan ruang yang luas, beberapa tempat tidur, dan area tempat duduk untuk kenyamanan bersama.</p>
         </div>
     </div>
 </body>
